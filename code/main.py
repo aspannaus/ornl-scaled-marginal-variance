@@ -247,7 +247,7 @@ def generate_scaled_marginal_variance(simplices,data_frame, variable_name):
     data_frame[variable_name + '_marginal_variance'] = data_frame[variable_name + '_marginal_variance'].astype('float64')
 
     # print(data_frame)
-    return data_frame
+    return data_frame, Q
 
 
 
@@ -314,7 +314,7 @@ if __name__ == "__main__":
         plot_simplicial_complex(df_one_variable, V_FIPS,variable,results_path)
 
         # Generate scaled marginal variance
-        marginal_var_df = generate_scaled_marginal_variance(V,df_one_variable,variable)
+        marginal_var_df, adjacency_matrix = generate_scaled_marginal_variance(V,df_one_variable,variable)
 
 
         # print the marginal variance
